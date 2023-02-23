@@ -1,10 +1,10 @@
 table { border-collapse: collapse; }
-table tr {background-color: #80808000; transition: 0.125s ease-in-out opacity;}
+table tr {background-color: #80808000; transition: 0.125s ease-in-out opacity; }
 table[data-details-visible] tr {background-color: #80808010;}
 
 /* table[data-details-visible] is when the table is ready, and displaying data */
 
-table button { user-select: none; appearance: none; border: none; background: none; cursor: pointer; outline: none; padding: 0; margin: 0; padding: 16px; background-color: #80808040; text-transform: uppercase; letter-spacing: 2px; white-space: nowrap; opacity: 0; }
+table button {user-select: none;appearance: none;border: none;background: none;cursor: pointer;outline: none;padding: 0;margin: 0;padding: 16px;background-color: #80808040;text-transform: uppercase;letter-spacing: 1px;white-space: nowrap;opacity: 0;text-rendering: geometricPrecision;-webkit-font-smoothing: subpixel-antialiased;font-weight: 600;font-size: 12px;border-radius: 4px;}
 table[data-details-visible] button { opacity: 1 }
 table[data-details-visible] button:disabled { opacity: 0.25; pointer-events: none; }
 table[data-details-visible] button:hover { background-color: #80808080; }
