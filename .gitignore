@@ -3,3 +3,6 @@ cache
 node_modules
 out
 .yarn
+.parcel-cache
+dist
+.DS_Store

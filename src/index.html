@@ -9,13 +9,16 @@
     <link href="styles/claim-table.css" rel="stylesheet" />
     <link href="styles/media-queries.css" rel="stylesheet" />
     <link href="styles/proxima.css" rel="stylesheet" />
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="media/apple-touch-icon.png"
+    />
     <link rel="icon" type="image/png" sizes="32x32" href="media/favicon.png" />
   </head>
   <body>
     <background>
-      <div id="pre-grid"></div>
-      <div id="grid"></div>
+      <div id="pre-grid"></div><div id="grid"></div>
       <header>
         <a href="http://ubq.fi/"
           ><div id="logo">
@@ -56,7 +59,6 @@
               <span class="full"></span><span class="short">Loading...</span>
             </td>
           </tr>
-
           <tr id="additional-details-border">
             <th></th>
             <td>
@@ -92,53 +94,26 @@
               </div>
             </td>
           </tr>
-
           <tr id="Allowance">
-            <th>Allowance</th>
-            <td id="permit.permitted.amount"></td>
+            <th>Allowance</th><td id="permit.permitted.amount"></td>
           </tr>
-          <tr id="From">
-            <th>From</th>
-            <td id="owner"></td>
-          </tr>
-          <tr id="Nonce">
-            <th>Nonce</th>
-            <td id="permit.nonce"></td>
-          </tr>
+          <tr id="From"><th>From</th><td id="owner"></td></tr>
+          <tr id="Nonce"><th>Nonce</th><td id="permit.nonce"></td></tr>
           <tr id="Deadline">
-            <th>Deadline</th>
-            <td id="permit.deadline"></td>
+            <th>Deadline</th><td id="permit.deadline"></td>
           </tr>
-          <tr id="Signature">
-            <th>Signature</th>
-            <td id="signature"></td>
-          </tr>
+          <tr id="Signature"><th>Signature</th><td id="signature"></td></tr>
         </tbody>
       </table>
     </main>
     <footer>
       <code></code>
-      <div id="build">
-        <a target="_blank" rel="noopener noreferrer"></a>
-      </div>
+      <div id="build"><a target="_blank" rel="noopener noreferrer"></a></div>
     </footer>
-    <script></script>
-
-    <script
-      src="scripts/get-contract-abi.ts"
-      type="application/javascript"
-    ></script>
-    <script
-      src="scripts/get-contract.ts"
-      type="application/javascript"
-    ></script>
-    <script
-      src="scripts/render-transaction.ts"
-      type="application/javascript"
-    ></script>
-
-    <script src="scripts/ubiquibank.ts" type="application/javascript"></script>
-
-    <script async src="scripts/draw.ts"></script>
+    <script type="module" src="scripts/get-contract-abi.ts"></script>
+    <script type="module" src="scripts/get-contract.ts"></script>
+    <script type="module" src="scripts/render-transaction.ts"></script>
+    <script type="module" src="scripts/ubiquibank.ts"></script>
+    <script type="module" src="scripts/draw.ts"></script>
   </body>
 </html>

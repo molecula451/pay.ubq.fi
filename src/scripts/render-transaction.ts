@@ -1,3 +1,4 @@
+import { getContract } from "./get-contract";
 import { insertTableData } from "./insert-table-data";
 
 let txData;
@@ -19,7 +20,7 @@ const requestedAmountElement = insertTableData(table, txData);
 renderTokenSymbol(table, requestedAmountElement);
 
 async function renderTokenSymbol(table, requestedAmountElement) {
-  const contract = await global.getContract(txData.permit.permitted.token);
+  const contract = await getContract(txData.permit.permitted.token);
   const symbol = await contract.symbol();
   table.setAttribute(`data-contract-loaded`, "true");
   requestedAmountElement.innerHTML = `<a target="_blank" rel="noopener noreferrer" href="https://etherscan.io/token/${

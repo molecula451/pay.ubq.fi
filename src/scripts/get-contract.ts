@@ -1,7 +1,5 @@
-/// <reference types="./global" />
-
-import { ethers } from "ethers";
 import { getContractAbi } from "./get-contract-abi";
+import ethers from "ethers";
 
 export async function getContract(contractAddress) {
   if (!window.ethereum) {

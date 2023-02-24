@@ -19,7 +19,7 @@ background #grid {
   /* background-color: #06061a; */
 }
 background #pre-grid {
-  background-image: url(/media/grid-1.png);
+  background-image: url(../media/grid-1.png);
   background-repeat: repeat;
 }
 background #grid {

@@ -5,8 +5,8 @@ import {
 } from "@uniswap/permit2-sdk";
 import { randomBytes } from "crypto";
 import * as dotenv from "dotenv";
-import { BigNumber, ethers } from "ethers";
-import { verifyEnvironmentVariables, log, colorizeText } from "./utils";
+import { ethers } from "ethers";
+import { log, verifyEnvironmentVariables } from "./utils";
 dotenv.config();
 
 const PERMIT2_ADDRESS = "0x000000000022D473030F116dDEE9F6B43aC78BA3"; // same on all chains

@@ -12,6 +12,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@adraffy/ens-normalize@npm:^1.9.0":
+  version: 1.9.0
+  resolution: "@adraffy/ens-normalize@npm:1.9.0"
+  checksum: a8d47f85db7a0bba01227fae8781a3245a4517875503d6848a47ca29e7f7da271742a2f93b55afc1b9201e74eda1fd1f1e6e79e70f967359fd7f6ec3d45bf243
+  languageName: node
+  linkType: hard
+
 "@babel/code-frame@npm:^7.0.0":
   version: 7.18.6
   resolution: "@babel/code-frame@npm:7.18.6"
@@ -1484,6 +1491,30 @@ __metadata:
     posthtml-render: ^3.0.0
     semver: ^5.7.1
   checksum: 1f3db309e47d07849a2b4ffe11b508fd7ae792c0c0ce7b03e442fffb25f5e7425c5027428729bf2b587309265bba0be6da635d62c51ae8ab7e54483eff3f575e
+  languageName: node
+  linkType: hard
+
+"@parcel/transformer-typescript-tsc@npm:^2.8.3":
+  version: 2.8.3
+  resolution: "@parcel/transformer-typescript-tsc@npm:2.8.3"
+  dependencies:
+    "@parcel/plugin": 2.8.3
+    "@parcel/source-map": ^2.1.1
+    "@parcel/ts-utils": 2.8.3
+  peerDependencies:
+    typescript: ">=3.0.0"
+  checksum: 3195fccf16d0ceccaab32b649546440d0fb8d103371953c260b3ebf7960c24b1b15ffb1d33f9278927ddf4ec8581105e3a1ffcc811c30a0f315d4560d0e0e8ba
+  languageName: node
+  linkType: hard
+
+"@parcel/ts-utils@npm:2.8.3":
+  version: 2.8.3
+  resolution: "@parcel/ts-utils@npm:2.8.3"
+  dependencies:
+    nullthrows: ^1.1.1
+  peerDependencies:
+    typescript: ">=3.0.0"
+  checksum: 002665a6e890420f15cc257afab814355a84e01a554d184e309c483e5c4fc7d2fda3edf9e8fc138a9f50792e9d3c95b705bc683f582bbc3f8e770f96ed305f24
   languageName: node
   linkType: hard
 
@@ -3865,6 +3896,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"parcel-resolver-ignore@npm:^2.1.3":
+  version: 2.1.3
+  resolution: "parcel-resolver-ignore@npm:2.1.3"
+  peerDependencies:
+    parcel: ">=2.0.0"
+  checksum: 3745145b961832dae7e3808bdc300d611d8db0d372f45b810a4fdfcfe6573afe43e69bfb8cf9c2044d8ff67ff97ae1ce8cc77ec158e568e6be73955d69e1e297
+  languageName: node
+  linkType: hard
+
 "parcel@npm:^2.8.3":
   version: 2.8.3
   resolution: "parcel@npm:2.8.3"
@@ -4198,7 +4238,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
+    "@adraffy/ens-normalize": ^1.9.0
     "@metamask/providers": ^10.2.1
+    "@parcel/transformer-typescript-tsc": ^2.8.3
     "@types/node": ^18.13.0
     "@uniswap/permit2-sdk": ^1.2.0
     dotenv: ^16.0.3
@@ -4206,8 +4248,10 @@ __metadata:
     node-static: ^0.7.11
     npm-run-all: ^4.1.5
     parcel: ^2.8.3
+    parcel-resolver-ignore: ^2.1.3
     prettier: ^2.8.4
     tsx: ^3.12.3
+    typescript: ">=3.0.0"
   languageName: unknown
   linkType: soft
 
@@ -4644,6 +4688,26 @@ __metadata:
     for-each: ^0.3.3
     is-typed-array: ^1.1.9
   checksum: 2228febc93c7feff142b8c96a58d4a0d7623ecde6c7a24b2b98eb3170e99f7c7eff8c114f9b283085cd59dcd2bd43aadf20e25bba4b034a53c5bb292f71f8956
+  languageName: node
+  linkType: hard
+
+"typescript@npm:>=3.0.0":
+  version: 4.9.5
+  resolution: "typescript@npm:4.9.5"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: ee000bc26848147ad423b581bd250075662a354d84f0e06eb76d3b892328d8d4440b7487b5a83e851b12b255f55d71835b008a66cbf8f255a11e4400159237db
+  languageName: node
+  linkType: hard
+
+"typescript@patch:typescript@>=3.0.0#~builtin<compat/typescript>":
+  version: 4.9.5
+  resolution: "typescript@patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=23ec76"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: ab417a2f398380c90a6cf5a5f74badd17866adf57f1165617d6a551f059c3ba0a3e4da0d147b3ac5681db9ac76a303c5876394b13b3de75fdd5b1eaa06181c9d
   languageName: node
   linkType: hard
 
