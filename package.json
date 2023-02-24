@@ -18,8 +18,5 @@
     "parcel": "^2.8.3",
     "prettier": "^2.8.4",
     "tsx": "^3.12.3"
-  },
-  "devDependencies": {
-    "eslint-plugin-prettier": "^4.2.1"
   }
 }
