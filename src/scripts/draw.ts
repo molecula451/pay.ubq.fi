@@ -8,16 +8,16 @@ export default function draw() {
   var render = {
     point: function (cell, target, settings) {
       target.fillStyle = [
-        'rgba(',
+        "rgba(",
         settings.red,
-        ',',
+        ",",
         settings.green,
-        ',',
+        ",",
         settings.blue,
-        ',',
+        ",",
         1,
-        ')',
-      ].join('');
+        ")",
+      ].join("");
       target.fillRect(
         settings.cell_resolution * cell.x,
         settings.cell_resolution * cell.y,
@@ -30,16 +30,16 @@ export default function draw() {
       var darker_green = Math.ceil(settings.green / 16);
       var darker_blue = Math.ceil(settings.blue / 16);
       target.fillStyle = [
-        'rgba(',
+        "rgba(",
         darker_red,
-        ',',
+        ",",
         darker_green,
-        ',',
+        ",",
         darker_blue,
-        ',',
+        ",",
         cell.opacity,
-        ')',
-      ].join('');
+        ")",
+      ].join("");
       target.fillRect(
         settings.cell_resolution * cell.x,
         settings.cell_resolution * cell.y,
@@ -49,16 +49,16 @@ export default function draw() {
     },
     border: function (cell, target, settings) {
       var ss = [
-        'rgba(',
+        "rgba(",
         settings.red,
-        ',',
+        ",",
         settings.green,
-        ',',
+        ",",
         settings.blue,
-        ', ',
+        ", ",
         1 / 16,
-        ')',
-      ].join('');
+        ")",
+      ].join("");
       target.lineWidth = 0.5;
       target.strokeStyle = ss;
       target.strokeRect(
@@ -76,16 +76,16 @@ export default function draw() {
       if (o < 0) (o = 0), (cell.direction = 1);
       if (o > 1) (o = 1), (cell.direction = -1);
       target.fillStyle = [
-        'rgba(',
+        "rgba(",
         settings.red,
-        ',',
+        ",",
         settings.green,
-        ',',
+        ",",
         settings.blue,
-        ',',
+        ",",
         o / 16,
-        ')',
-      ].join('');
+        ")",
+      ].join("");
       target.fillRect(
         settings.cell_resolution * cell.x,
         settings.cell_resolution * cell.y,
@@ -93,16 +93,16 @@ export default function draw() {
         settings.cell_resolution
       );
       var fs = [
-        'rgba(',
+        "rgba(",
         settings.red,
-        ',',
+        ",",
         settings.green,
-        ',',
+        ",",
         settings.blue,
-        ',',
+        ",",
         1,
-        ')',
-      ].join('');
+        ")",
+      ].join("");
       target.fillStyle = fs;
       target.fillRect(
         settings.cell_resolution * cell.x,
@@ -125,7 +125,7 @@ export default function draw() {
 
     function looper() {
       var canvas = settings.canvas,
-        c = canvas.getContext('2d');
+        c = canvas.getContext("2d");
 
       // console.log({ "looping": true });
 
@@ -190,17 +190,17 @@ export default function draw() {
       clearTimeout(offset);
       requestAnimationFrame(function () {
         offset = setTimeout(function () {
-          local_settings.target.innerHTML = '';
+          local_settings.target.innerHTML = "";
           global.draw(local_settings);
         }, local_settings.refresh);
       });
     }
 
     if (settings == void 0) {
-      throw Error('No settings for grid');
+      throw Error("No settings for grid");
     }
-    var canvas = document.createElement('CANVAS') as HTMLCanvasElement,
-      context = canvas.getContext('2d');
+    var canvas = document.createElement("CANVAS") as HTMLCanvasElement,
+      context = canvas.getContext("2d");
     if (settings.shade) {
       settings.red = settings.shade;
       settings.green = settings.shade;
@@ -224,7 +224,7 @@ export default function draw() {
 
     if (!resize_handler_set) {
       resize_handler_set = true;
-      global.addEventListener('resize', resize_callback);
+      global.addEventListener("resize", resize_callback);
     }
     //  ==> insertion point
     if (settings.target.children[0]) {

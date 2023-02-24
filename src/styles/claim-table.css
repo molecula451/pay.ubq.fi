@@ -137,18 +137,18 @@ table[data-details-rendered] tr#additional-details-border > * {
 /*  */
 
 table #additional-details-border ~ tr,
-table[data-details-visible='false'] #additional-details-border ~ tr {
+table[data-details-visible="false"] #additional-details-border ~ tr {
   opacity: 0;
   pointer-events: none;
 }
-table[data-details-visible='false'] {
+table[data-details-visible="false"] {
   border-bottom: 1px solid #80808000;
 }
-table[data-details-visible='true'] #additional-details-border ~ tr {
+table[data-details-visible="true"] #additional-details-border ~ tr {
   opacity: 1;
   pointer-events: unset;
 }
-table[data-details-visible='true'] {
+table[data-details-visible="true"] {
   border-bottom: 1px solid #80808020;
 }
 
@@ -162,21 +162,21 @@ table[data-contract-loaded] #Token {
   font-size: 24px;
 }
 
-table[data-details-visible='false'] #permit\.permitted\.token .full,
-table[data-details-visible='true'] #permit\.permitted\.token .short {
+table[data-details-visible="false"] #permit\.permitted\.token .full,
+table[data-details-visible="true"] #permit\.permitted\.token .short {
   display: none;
 }
-table[data-details-visible='true'] #permit\.permitted\.token .full,
-table[data-details-visible='false'] #permit\.permitted\.token .short {
+table[data-details-visible="true"] #permit\.permitted\.token .full,
+table[data-details-visible="false"] #permit\.permitted\.token .short {
   display: initial;
 }
 
-table[data-details-visible='false'] #transferDetails\.to .full,
-table[data-details-visible='true'] #transferDetails\.to .short {
+table[data-details-visible="false"] #transferDetails\.to .full,
+table[data-details-visible="true"] #transferDetails\.to .short {
   display: none;
 }
-table[data-details-visible='true'] #transferDetails\.to .full,
-table[data-details-visible='false'] #transferDetails\.to .short {
+table[data-details-visible="true"] #transferDetails\.to .full,
+table[data-details-visible="false"] #transferDetails\.to .short {
   display: initial;
 }
 #To > th,
