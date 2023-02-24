@@ -1,4 +1,4 @@
-(function draw() {
+export default function draw() {
   var Cell = function Cell(settings) {
     var keys = Object.keys(settings),
       x = keys.length;
@@ -7,21 +7,66 @@
   };
   var render = {
     point: function (cell, target, settings) {
-      target.fillStyle = ["rgba(", settings.red, ",", settings.green, ",", settings.blue, ",", 1, ")"].join("");
-      target.fillRect(settings.cell_resolution * cell.x, settings.cell_resolution * cell.y, settings.point_resolution, settings.point_resolution);
+      target.fillStyle = [
+        'rgba(',
+        settings.red,
+        ',',
+        settings.green,
+        ',',
+        settings.blue,
+        ',',
+        1,
+        ')',
+      ].join('');
+      target.fillRect(
+        settings.cell_resolution * cell.x,
+        settings.cell_resolution * cell.y,
+        settings.point_resolution,
+        settings.point_resolution
+      );
     },
     fill: function (cell, target, settings) {
       var darker_red = Math.ceil(settings.red / 16);
       var darker_green = Math.ceil(settings.green / 16);
       var darker_blue = Math.ceil(settings.blue / 16);
-      target.fillStyle = ["rgba(", darker_red, ",", darker_green, ",", darker_blue, ",", cell.opacity, ")"].join("");
-      target.fillRect(settings.cell_resolution * cell.x, settings.cell_resolution * cell.y, settings.cell_resolution, settings.cell_resolution);
+      target.fillStyle = [
+        'rgba(',
+        darker_red,
+        ',',
+        darker_green,
+        ',',
+        darker_blue,
+        ',',
+        cell.opacity,
+        ')',
+      ].join('');
+      target.fillRect(
+        settings.cell_resolution * cell.x,
+        settings.cell_resolution * cell.y,
+        settings.cell_resolution,
+        settings.cell_resolution
+      );
     },
     border: function (cell, target, settings) {
-      var ss = ["rgba(", settings.red, ",", settings.green, ",", settings.blue, ", ", 1 / 16, ")"].join("");
+      var ss = [
+        'rgba(',
+        settings.red,
+        ',',
+        settings.green,
+        ',',
+        settings.blue,
+        ', ',
+        1 / 16,
+        ')',
+      ].join('');
       target.lineWidth = 0.5;
       target.strokeStyle = ss;
-      target.strokeRect(settings.cell_resolution * cell.x, settings.cell_resolution * cell.y, settings.cell_resolution, settings.cell_resolution);
+      target.strokeRect(
+        settings.cell_resolution * cell.x,
+        settings.cell_resolution * cell.y,
+        settings.cell_resolution,
+        settings.cell_resolution
+      );
     },
     animate: function (cell, target, settings) {
       var step = settings.step;
@@ -30,11 +75,41 @@
       var o = cell.opacity;
       if (o < 0) (o = 0), (cell.direction = 1);
       if (o > 1) (o = 1), (cell.direction = -1);
-      target.fillStyle = ["rgba(", settings.red, ",", settings.green, ",", settings.blue, ",", o / 16, ")"].join("");
-      target.fillRect(settings.cell_resolution * cell.x, settings.cell_resolution * cell.y, settings.cell_resolution, settings.cell_resolution);
-      var fs = ["rgba(", settings.red, ",", settings.green, ",", settings.blue, ",", 1, ")"].join("");
+      target.fillStyle = [
+        'rgba(',
+        settings.red,
+        ',',
+        settings.green,
+        ',',
+        settings.blue,
+        ',',
+        o / 16,
+        ')',
+      ].join('');
+      target.fillRect(
+        settings.cell_resolution * cell.x,
+        settings.cell_resolution * cell.y,
+        settings.cell_resolution,
+        settings.cell_resolution
+      );
+      var fs = [
+        'rgba(',
+        settings.red,
+        ',',
+        settings.green,
+        ',',
+        settings.blue,
+        ',',
+        1,
+        ')',
+      ].join('');
       target.fillStyle = fs;
-      target.fillRect(settings.cell_resolution * cell.x, settings.cell_resolution * cell.y, settings.point_resolution, settings.point_resolution);
+      target.fillRect(
+        settings.cell_resolution * cell.x,
+        settings.cell_resolution * cell.y,
+        settings.point_resolution,
+        settings.point_resolution
+      );
     },
   };
   var prep = function (target, settings) {
@@ -50,12 +125,12 @@
 
     function looper() {
       var canvas = settings.canvas,
-        c = canvas.getContext("2d");
+        c = canvas.getContext('2d');
 
       // console.log({ "looping": true });
 
       if (!canvas.isConnected) {
-        temp_resize_switch = false;
+        // temp_resize_switch = false;
         clearInterval(fps.looper);
         // console.log({ "canvas.isConnected": canvas.isConnected });
         return false;
@@ -106,7 +181,7 @@
   var local_settings = null;
   var resize_handler_set = false;
 
-  window.draw = function draw(settings) {
+  return function draw(settings) {
     var temp_resize_switch = true;
     var offset;
 
@@ -115,17 +190,17 @@
       clearTimeout(offset);
       requestAnimationFrame(function () {
         offset = setTimeout(function () {
-          local_settings.target.innerHTML = "";
-          window.draw(local_settings);
+          local_settings.target.innerHTML = '';
+          global.draw(local_settings);
         }, local_settings.refresh);
       });
     }
 
     if (settings == void 0) {
-      throw Error("No settings for grid");
+      throw Error('No settings for grid');
     }
-    var canvas = document.createElement("CANVAS"),
-      context = canvas.getContext("2d");
+    var canvas = document.createElement('CANVAS') as HTMLCanvasElement,
+      context = canvas.getContext('2d');
     if (settings.shade) {
       settings.red = settings.shade;
       settings.green = settings.shade;
@@ -149,17 +224,25 @@
 
     if (!resize_handler_set) {
       resize_handler_set = true;
-      window.addEventListener("resize", resize_callback);
+      global.addEventListener('resize', resize_callback);
     }
     //  ==> insertion point
     if (settings.target.children[0]) {
-      settings.target.insertBefore(settings.canvas, settings.target.children[0]);
+      settings.target.insertBefore(
+        settings.canvas,
+        settings.target.children[0]
+      );
     } else {
       settings.target.appendChild(settings.canvas);
     }
-    settings.cells_per_row = Math.ceil(settings.target.offsetWidth / settings.cell_resolution);
-    settings.cells_per_column = Math.ceil(settings.target.offsetHeight / settings.cell_resolution);
-    settings.total_cell_count = settings.cells_per_row * settings.cells_per_column;
+    settings.cells_per_row = Math.ceil(
+      settings.target.offsetWidth / settings.cell_resolution
+    );
+    settings.cells_per_column = Math.ceil(
+      settings.target.offsetHeight / settings.cell_resolution
+    );
+    settings.total_cell_count =
+      settings.cells_per_row * settings.cells_per_column;
     settings.model = [];
     var x = -1; //  row
     var i = -1; //  index
@@ -176,7 +259,7 @@
             index: ++i,
             direction: 1,
             speed: o,
-          }),
+          })
         );
       }
       settings.model.push(row);
@@ -184,4 +267,4 @@
     temp_resize_switch && prep(context, settings);
     //  <== out
   };
-})();
+}
