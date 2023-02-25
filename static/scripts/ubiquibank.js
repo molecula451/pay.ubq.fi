@@ -41,6 +41,9 @@ window.onerror = function (error) {
   const output = document.querySelector(`footer>code`);
   delete error.stack;
   output.innerText = JSON.stringify(error, null, 2);
+  if (error?.data?.data == "0x815e1d64") {
+    console.error("Transfer amount exceeds balance.")
+  }
 };
 
 async function connectWallet(txData) {
