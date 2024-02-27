@@ -10,7 +10,6 @@ export enum NetworkIds {
   Gnosis = 100,
   Anvil = 31337,
 }
-console.trace({ extraRpcs });
 
 export enum Tokens {
   DAI = "0x6b175474e89094c44da98b954eedeac495271d0f",
@@ -49,7 +48,7 @@ export const networkExplorers: Record<number, string> = {
 export const networkRpcs: Record<number, string[]> = {
   [NetworkIds.Mainnet]: ["https://rpc-pay.ubq.fi/v1/mainnet", ...(extraRpcs[NetworkIds.Mainnet] || [])],
   [NetworkIds.Goerli]: ["https://rpc-pay.ubq.fi/v1/goerli", ...(extraRpcs[NetworkIds.Goerli] || [])],
-  [NetworkIds.Gnosis]: [...(extraRpcs[NetworkIds.Gnosis] || [])],
+  [NetworkIds.Gnosis]: ["https://rpc.ankr.com/gnosis", ...(extraRpcs[NetworkIds.Gnosis] || [])],
   [NetworkIds.Anvil]: ["http://127.0.0.1:8545", ""],
 };
 
