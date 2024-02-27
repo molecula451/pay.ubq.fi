@@ -10,6 +10,7 @@ export enum NetworkIds {
   Gnosis = 100,
   Anvil = 31337,
 }
+console.trace({ extraRpcs });
 
 export enum Tokens {
   DAI = "0x6b175474e89094c44da98b954eedeac495271d0f",
